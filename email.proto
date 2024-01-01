@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package goosechaseapp.data.email;
+
+option go_package = "./proto";
+
+message EmailDocument {
+  // email subject
+  string subject = 1;
+  // email `in_reply_to` value
+  string in_reply_to = 2;
+  // email `references` value
+  string references = 3;
+  string from_email = 4;
+  // parsed email body
+  string content = 5;
+}
