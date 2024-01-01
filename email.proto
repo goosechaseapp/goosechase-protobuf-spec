@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package goosechaseapp.data.email;
+package goosechase.data.email;
 
 option go_package = "./proto";
 
