@@ -14,4 +14,6 @@ message EmailDocument {
   string from_email = 4;
   // parsed email body
   string content = 5;
+  // email `message_id` value
+  string message_id = 6;
 }
