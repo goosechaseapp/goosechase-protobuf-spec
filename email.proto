@@ -17,3 +17,8 @@ message EmailDocument {
   // email `message_id` value
   string message_id = 6;
 }
+
+message SendEmailDocument {
+  string to_address = 1;
+  EmailDocument received_email = 2;
+}
