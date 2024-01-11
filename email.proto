@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package goosechase.data.email;
 
-import "prospect.proto";
-
 option go_package = "./proto";
 
 message EmailDocument {
@@ -27,9 +25,19 @@ enum SendEmailType {
   DRAFT_AND_PROSPECT_MODIFICATION = 3;
 }
 
+// ideally this should be a separate proto file
+// failed to resolve: could not find `prospects` in the crate root
+// caused this to be here
+// its 4am, will fix later
+message Prospect {
+  string email = 1;
+  string name = 2;
+  string company = 3;
+}
+
 message SendEmailDocument {
   string to_address = 1;
   EmailDocument received_email = 2;
   SendEmailType email_type = 3;
-  repeated goosechase.prospects.Prospect prospects = 4;
+  repeated Prospect prospects = 4;
 }
