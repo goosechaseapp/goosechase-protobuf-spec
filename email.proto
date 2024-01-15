@@ -18,13 +18,6 @@ message EmailDocument {
   string message_id = 6;
 }
 
-enum SendEmailType {
-  UNDEFINED = 0;
-  DRAFT_MODIFICATION = 1;
-  PROSPECT_MODIFICATION = 2;
-  DRAFT_AND_PROSPECT_MODIFICATION = 3;
-}
-
 // ideally this should be a separate proto file
 // failed to resolve: could not find `prospects` in the crate root
 // caused this to be here
@@ -37,7 +30,8 @@ message Prospect {
 
 message SendEmailDocument {
   string to_address = 1;
-  EmailDocument received_email = 2;
-  SendEmailType email_type = 3;
-  repeated Prospect prospects = 4;
+  string from_adress = 2;
+  string text_content = 3;
+  EmailDocument received_email = 4;
+  repeated Prospect prospects = 5;
 }
