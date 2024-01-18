@@ -16,6 +16,8 @@ message EmailDocument {
   string content = 5;
   // email `message_id` value
   string message_id = 6;
+  // email `to` value
+  string to_email = 7;
 }
 
 // ideally this should be a separate proto file
