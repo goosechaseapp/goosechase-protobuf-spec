@@ -20,20 +20,36 @@ message EmailDocument {
   string to_email = 7;
 }
 
-// ideally this should be a separate proto file
-// failed to resolve: could not find `prospects` in the crate root
-// caused this to be here
-// its 4am, will fix later
 message Prospect {
   string email = 1;
   string name = 2;
   string company = 3;
 }
 
+message EmailHeaders {
+  string key = 1;
+  string value = 2;
+}
+
 message SendEmailDocument {
+  // receivers email address
   string to_address = 1;
-  string from_adress = 2;
+
+  // sending email address
+  string from_address = 2;
+
+  // email content in plain text
   string text_content = 3;
-  EmailDocument received_email = 4;
+
+  // deprecated
+  // EmailDocument received_email = 4;
+
+  // list of prospects
   repeated Prospect prospects = 5;
+
+  // email subject
+  string subject = 6;
+
+  // email headers
+  repeated EmailHeaders headers = 7;
 }
