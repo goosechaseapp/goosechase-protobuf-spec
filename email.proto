@@ -32,7 +32,7 @@ message Prospect {
 
 message SendEmailDocument {
   string to_address = 1;
-  string from_adress = 2;
+  string from_address = 2;
   string text_content = 3;
   EmailDocument received_email = 4;
   repeated Prospect prospects = 5;
