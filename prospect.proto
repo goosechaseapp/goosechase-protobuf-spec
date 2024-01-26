@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package goosechase.data.prospect;
+
+option go_package = "./proto";
+
+message ProspectFlowInitJob {
+  string campaign_id = 1;
+}
