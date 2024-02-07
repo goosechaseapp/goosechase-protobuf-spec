@@ -7,49 +7,81 @@ option go_package = "./proto";
 message EmailDocument {
   // email subject
   string subject = 1;
+
   // email `in_reply_to` value
   string in_reply_to = 2;
+
   // email `references` value
   string references = 3;
+
   string from_email = 4;
   // parsed email body
+
   string content = 5;
   // email `message_id` value
+
   string message_id = 6;
+
   // email `to` value
   string to_email = 7;
 }
 
 message Prospect {
   string email = 1;
+
   string name = 2;
+
   string company = 3;
 }
 
 message EmailHeaders {
   string key = 1;
+
   string value = 2;
 }
 
+enum EmailType {
+  UNDEFINED = 0;
+  SENT_CAMPAIGN = 1;
+  SENT_CLIENT = 2;
+  SENT_PROSPECT = 3;
+}
+
 message SendEmailDocument {
+  reserved 4;
+  reserved "received_email";
+
   // receivers email address
   string to_address = 1;
 
   // sending email address
   string from_address = 2;
 
-  // email content in plain text
-  string text_content = 3;
+  // address receiver replies to
+  string reply_to_address = 8;
 
-  // deprecated
-  // EmailDocument received_email = 4;
+  string cc = 9;
 
-  // list of prospects
-  repeated Prospect prospects = 5;
+  string bcc = 10;
 
   // email subject
   string subject = 6;
 
+  // email content in plain text
+  string text_content = 3;
+
+  // email content in html
+  string html_content = 11;
+
   // email headers
   repeated EmailHeaders headers = 7;
+
+  // deprecated
+  // EmailDocument received_email = 4;
+
+  // email type
+  EmailType email_type = 12;
+
+  // list of prospects
+  repeated Prospect prospects = 5;
 }
