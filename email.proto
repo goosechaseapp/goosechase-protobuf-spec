@@ -40,6 +40,14 @@ message EmailHeaders {
   string value = 2;
 }
 
+message EmailAdress {
+  // email address
+  string email = 1;
+
+  // name of the email address owner
+  string name = 2;
+}
+
 enum EmailType {
   UNDEFINED = 0;
   SENT_CAMPAIGN = 1;
@@ -48,40 +56,34 @@ enum EmailType {
 }
 
 message SendEmailDocument {
-  reserved 4;
-  reserved "received_email";
-
   // receivers email address
-  string to_address = 1;
+  repeated EmailAdress to_addresses = 1;
 
   // sending email address
-  string from_address = 2;
+  string from_addresses = 2;
 
   // address receiver replies to
-  string reply_to_address = 8;
+  repeated EmailAdress reply_to_addresses = 3;
 
-  string cc = 9;
+  repeated EmailAdress cc = 4;
 
-  string bcc = 10;
+  repeated EmailAdress bcc = 5;
 
   // email subject
   string subject = 6;
 
   // email content in plain text
-  string text_content = 3;
+  string text_content = 7;
 
   // email content in html
-  string html_content = 11;
+  string html_content = 8;
 
   // email headers
-  repeated EmailHeaders headers = 7;
-
-  // deprecated
-  // EmailDocument received_email = 4;
+  repeated EmailHeaders headers = 9;
 
   // email type
-  EmailType email_type = 12;
+  EmailType email_type = 10;
 
   // list of prospects
-  repeated Prospect prospects = 5;
+  repeated Prospect prospects = 11;
 }
