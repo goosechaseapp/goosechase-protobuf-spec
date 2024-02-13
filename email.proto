@@ -40,7 +40,7 @@ message EmailHeaders {
   string value = 2;
 }
 
-message EmailAdress {
+message EmailAddress {
   // email address
   string email = 1;
 
@@ -57,17 +57,17 @@ enum EmailType {
 
 message SendEmailDocument {
   // receivers email address
-  repeated EmailAdress to_addresses = 1;
+  repeated EmailAddress to_addresses = 1;
 
   // sending email address
   string from_addresses = 2;
 
   // address receiver replies to
-  repeated EmailAdress reply_to_addresses = 3;
+  repeated EmailAddress reply_to_addresses = 3;
 
-  repeated EmailAdress cc = 4;
+  repeated EmailAddress cc = 4;
 
-  repeated EmailAdress bcc = 5;
+  repeated EmailAddress bcc = 5;
 
   // email subject
   string subject = 6;
