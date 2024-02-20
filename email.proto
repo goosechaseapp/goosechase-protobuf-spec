@@ -20,13 +20,13 @@ message EmailDocument {
   string content = 5;
 
   // email body `html-content`
-  string content_html = 5;
+  string content_html = 6;
 
   // email `message_id` value
-  string message_id = 6;
+  string message_id = 7;
 
   // email `to` value
-  string to_email = 7;
+  string to_email = 8;
 }
 
 message Prospect {
