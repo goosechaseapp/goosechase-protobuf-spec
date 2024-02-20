@@ -15,11 +15,14 @@ message EmailDocument {
   string references = 3;
 
   string from_email = 4;
+
   // parsed email body
-
   string content = 5;
-  // email `message_id` value
 
+  // email body `html-content`
+  string content_html = 5;
+
+  // email `message_id` value
   string message_id = 6;
 
   // email `to` value
