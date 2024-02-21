@@ -92,4 +92,10 @@ message SendEmailDocument {
 
   // list of prospects
   repeated Prospect prospects = 11;
+
+  // previous email's text content
+  string previous_text_content = 12;
+
+  // previous email's html content
+  string previous_html_content = 13;
 }
