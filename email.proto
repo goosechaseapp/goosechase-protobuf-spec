@@ -16,8 +16,8 @@ message EmailDocument {
 
   string from_email = 4;
 
-  // parsed email body
-  string content = 5;
+  // text content of the email
+  string content_text = 5;
 
   // email body `html-content`
   string content_html = 6;
@@ -27,6 +27,9 @@ message EmailDocument {
 
   // email `to` value
   string to_email = 8;
+
+  // filtered out latest email
+  string content = 9;
 }
 
 message Prospect {
