@@ -66,7 +66,7 @@ message SendEmailDocument {
   repeated EmailAddress to_addresses = 1;
 
   // sending email address
-  string from_addresses = 2;
+  string from_address = 2;
 
   // address receiver replies to
   repeated EmailAddress reply_to_addresses = 3;
