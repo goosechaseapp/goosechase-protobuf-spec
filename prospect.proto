@@ -4,6 +4,6 @@ package goosechase.data.prospect;
 
 option go_package = "./proto";
 
-message ProspectFlowInitJob {
-  string campaign_id = 1;
-}
+message ProspectFlowInitJob { string campaign_id = 1; }
+
+message HotCampaignEntry { string prospect_id = 1; }
