@@ -6,4 +6,4 @@ option go_package = "./proto";
 
 message ProspectFlowInitJob { string campaign_id = 1; }
 
-message HotCampaignEntry { string prospect_id = 1; }
+message HotCampaignEntry { string entry_id = 1; }
