@@ -22,10 +22,7 @@ message User {
   Role role = 10;
 }
 
-message FindOneRequest {
-  string userId = 1;
-  string entId = 2;
-}
+message FindOneRequest { string user_id = 1; }
 
 message FindOneResult { User result = 1; }
 
