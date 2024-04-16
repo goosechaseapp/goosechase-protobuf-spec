@@ -4,9 +4,9 @@ package goosechase.data.user;
 
 option go_package = "./proto";
 
-enum Role {
-  Admin = 0;
-  User = 1;
+enum Roles {
+  RoleAdmin = 0;
+  RoleUser = 1;
 }
 
 message User {
@@ -19,7 +19,7 @@ message User {
   optional string bio = 7;
   bool is_production = 8;
   string overwrite_prospect_email = 9;
-  Role role = 10;
+  Roles role = 10;
 }
 
 message FindOneRequest { string user_id = 1; }
@@ -53,7 +53,7 @@ message InviteUserRequest {
   optional string bio = 6;
   bool is_production = 7;
   string overwrite_prospect_email = 8;
-  Role role = 9;
+  Roles role = 9;
 }
 
 message InviteUserResponse {
