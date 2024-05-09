@@ -99,3 +99,14 @@ message SendEmailDocument {
   // previous email's html content
   string previous_html_content = 13;
 }
+
+message ScheduledEmail {
+  // email document
+  SendEmailDocument email = 1;
+
+  // scheduled time in unix timestamp
+  int64 send_time = 2;
+
+  // optional campaign id, for later querying purposes
+  optional string campaign_id = 3;
+}
