@@ -98,4 +98,7 @@ message SendEmailDocument {
 
   // previous email's html content
   string previous_html_content = 13;
+
+  // scheduled time to send email, unix timestamp
+  optional int64 scheduled_time = 14;
 }
