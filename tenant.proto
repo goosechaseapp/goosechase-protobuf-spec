@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package goosechase.data.tenant;
+
+option go_package = "./proto";
+
+message Tenant {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string domain = 4;
+  string domain_verification_status = 5;
+  string agent_id = 6;
+  optional string created_at = 7;
+  optional string updated_at = 8;
+}
+
+message FindOneRequest { string tenant_id = 1; }
+message FindOneResult { Tenant result = 1; }
+
+message CreateTenantRequest { Tenant data = 2; }
+
+message CreateTenantResult {
+  Tenant result = 1;
+  string status = 2;
+}
+
+service TenantService {
+  rpc FindOne(FindOneRequest) returns (FindOneResult);
+  rpc CreateTenant(CreateTenantRequest) returns (CreateTenantResult);
+}
