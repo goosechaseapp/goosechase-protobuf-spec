@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package goosechase.data.user;
 
+import "common.proto";
+
 option go_package = "./proto";
 
 enum Roles {
@@ -22,9 +24,7 @@ message User {
   Roles role = 10;
 }
 
-message FindOneRequest { string user_id = 1; }
-
-message FindOneResult { User result = 1; }
+message FindOneUserResult { User result = 1; }
 
 message FindManyRequest {
   optional string query = 1;
@@ -62,7 +62,7 @@ message InviteUserResponse {
 }
 
 service UserService {
-  rpc FindOne(FindOneRequest) returns (FindOneResult);
+  rpc FindOneUser(common.FindOneRequest) returns (FindOneUserResult);
   rpc FindMany(FindManyRequest) returns (FindManyResult);
   rpc SetDemoMode(SetDemoModeRequest) returns (SetDemoModeResult);
   rpc InviteUser(InviteUserRequest) returns (InviteUserResponse);

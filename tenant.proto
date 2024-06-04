@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "common.proto";
+
 package goosechase.data.tenant;
 
 option go_package = "./proto";
@@ -15,8 +17,7 @@ message Tenant {
   optional string updated_at = 8;
 }
 
-message FindOneRequest { string tenant_id = 1; }
-message FindOneResult { Tenant result = 1; }
+message FindOneTenantResult { Tenant result = 1; }
 
 message CreateTenantRequest { Tenant data = 2; }
 
@@ -26,6 +27,6 @@ message CreateTenantResult {
 }
 
 service TenantService {
-  rpc FindOne(FindOneRequest) returns (FindOneResult);
+  rpc FindOneTenant(common.FindOneRequest) returns (FindOneTenantResult);
   rpc CreateTenant(CreateTenantRequest) returns (CreateTenantResult);
 }
