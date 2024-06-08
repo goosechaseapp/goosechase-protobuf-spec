@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package goosechase.data.client;
+
+option go_package = "./proto";
+
+message Client {
+  string id = 1;
+  string client_id = 2;
+  string kc_id = 3;
+  string name = 4;
+  string description = 5;
+  string client_authenticator_type = 6;
+  string tenant_id = 7;
+  string secret = 8;
+}
+
+message CreateClientRequest {
+  string tenant_id = 1;
+  string description = 2;
+  string name = 3;
+}
+
+message CreateClientResult {
+  Client result = 1;
+  string status = 2;
+}
+
+service ClientService {
+  rpc CreateClient(CreateClientRequest) returns (CreateClientResult);
+}
